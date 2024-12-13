@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:background="@drawable/crypto_currencies_item_bg_rounded"
+    android:padding="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/item_layout_crypto_curriency"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cryptoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Bitcoin"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/item_layout_crypto_curriency"
+            tools:srcCompat="@drawable/bitcoin_btc_logo" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/cryptoPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_layout_crypto_curriency"
+            android:text="$63,541.45"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/cryptyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cryptoPrice"
+            android:layout_marginTop="6dp"
+            android:text="BTC/USDT"
+            android:textColor="#000"
+            android:textSize="10sp"
+            android:textStyle="italic"/>
+
+</RelativeLayout>

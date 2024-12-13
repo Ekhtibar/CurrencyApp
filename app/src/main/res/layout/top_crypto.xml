@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_crypto_item"
+        android:background="@drawable/rounded_background"
+        android:padding="12dp">
+
+
+        <TextView
+            android:id="@+id/cryptyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="BTC"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/cryptoPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cryptyName"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:text="$63,541.45"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/cardTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Текущая цена"
+            android:textStyle="italic"
+            android:textColor="#fff"
+            android:textSize="8sp"
+            android:layout_below="@id/cryptoPrice"
+            android:layout_marginTop="12dp"/>
+    </RelativeLayout>
+</LinearLayout>
