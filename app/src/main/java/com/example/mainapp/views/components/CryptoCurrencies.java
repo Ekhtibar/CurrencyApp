@@ -91,6 +91,7 @@ public class CryptoCurrencies extends Fragment {
             cryptoNames.add("SNX/USDT");   // 35
             cryptoNames.add("LRC/USDT");    // 36
             cryptoNames.add("STORJ/USDT");   // 37
+            cryptoNames.add("THETA/USDT");   // 38
 
             cryptoPrices = new ArrayList<>();
             cryptoPrices.add("$0.6036");
@@ -130,6 +131,7 @@ public class CryptoCurrencies extends Fragment {
             cryptoPrices.add("$3.50");      // SNX
             cryptoPrices.add("$0.50");      // LRC
             cryptoPrices.add("$0.02");      // STMX
+            cryptoPrices.add("$2.66");      // THETA
 
             cryptoLogos = new ArrayList<>();
             cryptoLogos.add(R.drawable.mantle_mnt_logo);
@@ -169,6 +171,7 @@ public class CryptoCurrencies extends Fragment {
             cryptoLogos.add(R.drawable.sandbox_coin);      // SNX
             cryptoLogos.add(R.drawable.loopring_lrc_logo);      // LRC
             cryptoLogos.add(R.drawable.storj_storj_logo);     // STMX
+            cryptoLogos.add(R.drawable.thete);     // STMX
 
             cryptoTitles = new ArrayList<>();
             cryptoTitles.add("Mantle");
@@ -208,45 +211,47 @@ public class CryptoCurrencies extends Fragment {
             cryptoTitles.add("Synthetix");    // SNX
             cryptoTitles.add("Loopring");     // LRC
             cryptoTitles.add("Storj");       // STMX
+            cryptoTitles.add("Theta Network");       // THETA
 
             cryptoUrls = new ArrayList<>();
-            cryptoUrls.add("https://coinmarketcap.com/currencies/mantle/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/shiba-inu/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/pepe/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/dogecoin/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/bitcoin/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/mantle/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/shiba-inu/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/pepe/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/dogecoin/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/bitcoin/");
             cryptoUrls.add("https://coinmarketcap.com/ru/currencies/ethereum/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/solana/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/bnb/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/tron/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/cardano/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/xrp/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/polkadot-new/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/litecoin/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/chainlink/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/avalanche/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/polygon/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/uniswap/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/stellar/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/filecoin/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/hedera/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/algorand/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/the-sandbox/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/fantom/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/helium/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/zilliqa/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/kusama/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/the-graph/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/decentraland/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/lido-dao/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/cosmos/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/enjin-coin/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/maker/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/aave/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/compound/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/synthetix/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/loopring/");
-            cryptoUrls.add("https://coinmarketcap.com/currencies/storj/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/solana/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/bnb/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/tron/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/cardano/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/xrp/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/polkadot-new/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/litecoin/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/chainlink/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/avalanche/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/polygon/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/uniswap/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/stellar/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/filecoin/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/hedera/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/algorand/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/the-sandbox/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/fantom/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/helium/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/zilliqa/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/kusama/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/the-graph/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/decentraland/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/lido-dao/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/cosmos/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/enjin-coin/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/maker/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/aave/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/compound/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/synthetix/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/loopring/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/storj/");
+            cryptoUrls.add("https://coinmarketcap.com/ru/currencies/theta-network/");
 
 
 

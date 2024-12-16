@@ -15,6 +15,8 @@ import com.example.mainapp.R;
 import com.example.mainapp.views.CrytpoCurrencyDetail;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class NationCurrenciesAdapter extends RecyclerView.Adapter<NationCurrenciesAdapter.ViewHolder> {
     private ArrayList<String> currencyPricesInRubl;
@@ -22,7 +24,6 @@ public class NationCurrenciesAdapter extends RecyclerView.Adapter<NationCurrenci
     private ArrayList<Integer> countryFlags;
     private ArrayList<String> currencyTitles;
     private ArrayList<String> cryptoUrls;
-
 
     public NationCurrenciesAdapter(ArrayList<String> currencyNames, ArrayList<String> currencyPricesInRubl,
                                    ArrayList<Integer> countryFlags, ArrayList<String> currencyTitles,
@@ -33,7 +34,46 @@ public class NationCurrenciesAdapter extends RecyclerView.Adapter<NationCurrenci
         this.currencyTitles = currencyTitles;
         this.cryptoUrls = cryptoUrls;
 
+        // Сортируем по currencyTitle
+        sortByTitle();
+    }
 
+    private void sortByTitle() {
+        // Создаем список индексов
+        ArrayList<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < currencyTitles.size(); i++) {
+            indices.add(i);
+        }
+
+        // Сортируем индексы на основе значений в currencyTitles
+        Collections.sort(indices, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer index1, Integer index2) {
+                return currencyTitles.get(index1).compareTo(currencyTitles.get(index2));
+            }
+        });
+
+        // Создаем новые отсортированные списки
+        ArrayList<String> sortedCurrencyTitles = new ArrayList<>();
+        ArrayList<String> sortedCurrencyNames = new ArrayList<>();
+        ArrayList<String> sortedCurrencyPricesInRubl = new ArrayList<>();
+        ArrayList<Integer> sortedCountryFlags = new ArrayList<>();
+        ArrayList<String> sortedCryptoUrls = new ArrayList<>();
+
+        for (int index : indices) {
+            sortedCurrencyTitles.add(currencyTitles.get(index));
+            sortedCurrencyNames.add(currencyNames.get(index));
+            sortedCurrencyPricesInRubl.add(currencyPricesInRubl.get(index));
+            sortedCountryFlags.add(countryFlags.get(index));
+            sortedCryptoUrls.add(cryptoUrls.get(index));
+        }
+
+        // Обновляем оригинальные списки
+        currencyTitles = sortedCurrencyTitles;
+        currencyNames = sortedCurrencyNames;
+        currencyPricesInRubl = sortedCurrencyPricesInRubl;
+        countryFlags = sortedCountryFlags;
+        cryptoUrls = sortedCryptoUrls;
     }
 
     // Создание ViewHolder, где мы подключаем макет элемента
@@ -45,8 +85,6 @@ public class NationCurrenciesAdapter extends RecyclerView.Adapter<NationCurrenci
 
     @Override
     public void onBindViewHolder(@NonNull NationCurrenciesAdapter.ViewHolder holder, int position) {
-
-
         // Устанавливаем текст для TextView
         holder.currencyName.setText(currencyNames.get(position));
         holder.currencyPrice.setText(currencyPricesInRubl.get(position));
@@ -73,10 +111,6 @@ public class NationCurrenciesAdapter extends RecyclerView.Adapter<NationCurrenci
         });
     }
 
-    // Связываем данные с элементами ViewHolder
-
-
-
     // Возвращаем количество элементов в списке
     @Override
     public int getItemCount() {
@@ -89,7 +123,6 @@ public class NationCurrenciesAdapter extends RecyclerView.Adapter<NationCurrenci
         public TextView currencyPrice;
         public ImageView countryFlag;
         public TextView currencyTitle;
-
 
         public ViewHolder(View itemView) {
             super(itemView);

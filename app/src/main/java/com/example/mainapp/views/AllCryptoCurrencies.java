@@ -269,4 +269,30 @@ public class AllCryptoCurrencies extends Fragment {
 
         return view;
     }
+
+    public void filter(String text) {
+        ArrayList<String> filteredNames = new ArrayList<>();
+        ArrayList<String> filteredPrices = new ArrayList<>();
+        ArrayList<Integer> filteredLogos = new ArrayList<>();
+        ArrayList<String> filteredTitles = new ArrayList<>();
+        ArrayList<String> filteredUrls = new ArrayList<>();
+
+        for (int i = 0; i < cryptoNames.size(); i++) {
+            if (cryptoNames.get(i).toLowerCase().contains(text.toLowerCase())) {
+                filteredNames.add(cryptoNames.get(i));
+                filteredPrices.add(cryptoPrices.get(i));
+                filteredLogos.add(cryptoLogos.get(i));
+                filteredTitles.add(cryptoTitles.get(i));
+                filteredUrls.add(cryptoUrls.get(i));
+            }
+        }
+
+        // Обновляем данные адаптера
+        this.cryptoNames = filteredNames;
+        this.cryptoPrices = filteredPrices;
+        this.cryptoLogos = filteredLogos;
+        this.cryptoTitles = filteredTitles;
+        this.cryptoUrls = filteredUrls;
+
+    }
 }

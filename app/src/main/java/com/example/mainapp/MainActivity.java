@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.mainapp.databinding.ActivityMainBinding;
 import com.example.mainapp.views.Convert;
 import com.example.mainapp.views.Home;
+import com.example.mainapp.views.Search;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (itemId == R.id.convert) {
                 replaceFragment(new Convert());
             }
+
+//            else if (itemId == R.id.search){
+//                replaceFragment(new Search());
+//            }
 
             return true;
         });

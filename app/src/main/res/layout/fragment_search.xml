@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/search__1_"/>
+
+            <EditText
+                android:id="@+id/edt_search_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:hint="Поиск..."
+                android:paddingLeft="8dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingRight="8dp"
+                android:lines="1"
+                android:textColorHint="#000"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:background="@color/white"/>
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/iv_clear_text"-->
+            <!--                android:layout_width="25dp"-->
+            <!--                android:layout_height="25dp"-->
+            <!--                android:adjustViewBounds="true"-->
+            <!--                android:visibility="gone"-->
+            <!--                android:src="@mipmap/ic_launcher_round"/>-->
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/top_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            app:spanCount="1"
+            tools:itemCount="5"
+            tools:listitem="@layout/all_crypto_currencies_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

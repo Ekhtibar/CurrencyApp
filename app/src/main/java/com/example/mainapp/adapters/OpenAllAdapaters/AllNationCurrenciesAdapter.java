@@ -15,6 +15,8 @@ import com.example.mainapp.R;
 import com.example.mainapp.views.CrytpoCurrencyDetail;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AllNationCurrenciesAdapter extends RecyclerView.Adapter<AllNationCurrenciesAdapter.ViewHolder> {
 
@@ -32,6 +34,47 @@ public class AllNationCurrenciesAdapter extends RecyclerView.Adapter<AllNationCu
         this.countryFlags = countryFlags;
         this.currencyTitles = currencyTitles;
         this.cryptoUrls = cryptoUrls;
+
+        // Сортируем по currencyTitle
+        sortByTitle();
+    }
+
+    private void sortByTitle() {
+        // Создаем список индексов
+        ArrayList<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < currencyTitles.size(); i++) {
+            indices.add(i);
+        }
+
+        // Сортируем индексы на основе значений в currencyTitles
+        Collections.sort(indices, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer index1, Integer index2) {
+                return currencyTitles.get(index1).compareTo(currencyTitles.get(index2));
+            }
+        });
+
+        // Создаем новые отсортированные списки
+        ArrayList<String> sortedCurrencyTitles = new ArrayList<>();
+        ArrayList<String> sortedCurrencyNames = new ArrayList<>();
+        ArrayList<String> sortedCurrencyPricesInRubl = new ArrayList<>();
+        ArrayList<Integer> sortedCountryFlags = new ArrayList<>();
+        ArrayList<String> sortedCryptoUrls = new ArrayList<>();
+
+        for (int index : indices) {
+            sortedCurrencyTitles.add(currencyTitles.get(index));
+            sortedCurrencyNames.add(currencyNames.get(index));
+            sortedCurrencyPricesInRubl.add(currencyPricesInRubl.get(index));
+            sortedCountryFlags.add(countryFlags.get(index));
+            sortedCryptoUrls.add(cryptoUrls.get(index));
+        }
+
+        // Обновляем оригинальные списки
+        currencyTitles = sortedCurrencyTitles;
+        currencyNames = sortedCurrencyNames;
+        currencyPricesInRubl = sortedCurrencyPricesInRubl;
+        countryFlags = sortedCountryFlags;
+        cryptoUrls = sortedCryptoUrls;
     }
 
     // Создание ViewHolder, где мы подключаем макет элемента
@@ -66,12 +109,10 @@ public class AllNationCurrenciesAdapter extends RecyclerView.Adapter<AllNationCu
         });
     }
 
-
     @Override
     public int getItemCount() {
         return currencyNames.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView currencyName;
@@ -81,10 +122,10 @@ public class AllNationCurrenciesAdapter extends RecyclerView.Adapter<AllNationCu
 
         public ViewHolder(View itemView) {
             super(itemView);
-            currencyName = itemView.findViewById(R.id.currencyName); // Находим ID cryptoName в crypto_currencies_item.xml
-            currencyPrice = itemView.findViewById(R.id.currencyPriceInRubl); // Находим ID cryptoPrice в crypto_currencies_item.xml
-            countryFlag = itemView.findViewById(R.id.countryFlag); // Находим ID cryptoLogo в crypto_currencies_item.xml
-            currencyTitle = itemView.findViewById(R.id.currencyTitle); // Находим ID cryptoTitle в crypto_currencies_item.xml
+            currencyName = itemView.findViewById(R.id.currencyName); // Находим ID currencyName в all_nation_currencies_item.xml
+            currencyPrice = itemView.findViewById(R.id.currencyPriceInRubl); // Находим ID currencyPriceInRubl в all_nation_currencies_item.xml
+            countryFlag = itemView.findViewById(R.id.countryFlag); // Находим ID countryFlag в all_nation_currencies_item.xml
+            currencyTitle = itemView.findViewById(R.id.currencyTitle); // Находим ID currencyTitle в all_nation_currencies_item.xml
         }
     }
 }

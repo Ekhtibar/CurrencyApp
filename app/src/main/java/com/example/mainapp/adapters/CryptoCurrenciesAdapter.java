@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mainapp.R;
 import com.example.mainapp.views.CrytpoCurrencyDetail;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CryptoCurrenciesAdapter extends RecyclerView.Adapter<CryptoCurrenciesAdapter.ViewHolder> {
     private ArrayList<String> cryptoPrices;
@@ -33,6 +33,47 @@ public class CryptoCurrenciesAdapter extends RecyclerView.Adapter<CryptoCurrenci
         this.cryptoLogos = cryptoLogos;
         this.cryptoTitles = cryptoTitles;
         this.cryptoUrls = cryptoUrls;
+
+        // Сортируем по cryptoTitle
+        sortByTitle();
+    }
+
+    private void sortByTitle() {
+        // Создаем список индексов
+        ArrayList<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < cryptoTitles.size(); i++) {
+            indices.add(i);
+        }
+
+        // Сортируем индексы на основе значений в cryptoTitles
+        Collections.sort(indices, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer index1, Integer index2) {
+                return cryptoTitles.get(index1).compareTo(cryptoTitles.get(index2));
+            }
+        });
+
+        // Создаем новые отсортированные списки
+        ArrayList<String> sortedCryptoTitles = new ArrayList<>();
+        ArrayList<String> sortedCryptoNames = new ArrayList<>();
+        ArrayList<String> sortedCryptoPrices = new ArrayList<>();
+        ArrayList<Integer> sortedCryptoLogos = new ArrayList<>();
+        ArrayList<String> sortedCryptoUrls = new ArrayList<>();
+
+        for (int index : indices) {
+            sortedCryptoTitles.add(cryptoTitles.get(index));
+            sortedCryptoNames.add(cryptoNames.get(index));
+            sortedCryptoPrices.add(cryptoPrices.get(index));
+            sortedCryptoLogos.add(cryptoLogos.get(index));
+            sortedCryptoUrls.add(cryptoUrls.get(index));
+        }
+
+        // Обновляем оригинальные списки
+        cryptoTitles = sortedCryptoTitles;
+        cryptoNames = sortedCryptoNames;
+        cryptoPrices = sortedCryptoPrices;
+        cryptoLogos = sortedCryptoLogos;
+        cryptoUrls = sortedCryptoUrls;
     }
 
     @Override
@@ -49,7 +90,6 @@ public class CryptoCurrenciesAdapter extends RecyclerView.Adapter<CryptoCurrenci
         holder.cryptoTitle.setText(cryptoTitles.get(position));
 
         String cryptoExchangeUrl = cryptoUrls.get(position);
-
 
         // Устанавливаем слушатель клика для перехода в DetailFragment
         holder.itemView.setOnClickListener(v -> {
@@ -69,7 +109,6 @@ public class CryptoCurrenciesAdapter extends RecyclerView.Adapter<CryptoCurrenci
         });
     }
 
-
     // Возвращаем количество элементов в списке
     @Override
     public int getItemCount() {
@@ -85,6 +124,7 @@ public class CryptoCurrenciesAdapter extends RecyclerView.Adapter<CryptoCurrenci
 
         public ViewHolder(View itemView) {
             super(itemView);
+
             cryptoName = itemView.findViewById(R.id.cryptyName); // Находим ID cryptoName в crypto_currencies_item.xml
             cryptoPrice = itemView.findViewById(R.id.cryptoPrice); // Находим ID cryptoPrice в crypto_currencies_item.xml
             cryptoLogo = itemView.findViewById(R.id.imageView); // Находим ID cryptoLogo в crypto_currencies_item.xml

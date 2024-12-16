@@ -13,4 +13,9 @@
         android:icon="@drawable/convert_v1"
         android:title="Конвертор" />
 
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search__2_"
+        android:title="Поиск" />
+
 </menu>

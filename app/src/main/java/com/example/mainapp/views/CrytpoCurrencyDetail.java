@@ -1,6 +1,7 @@
 package com.example.mainapp.views;
 
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -103,5 +105,14 @@ public class CrytpoCurrencyDetail extends Fragment {
 
         return view;
 
+    }
+
+
+    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+        // Здесь вы можете обработать ошибку SSL
+        // Например, вы можете игнорировать ошибку (не рекомендуется для продакшн-кода)
+        handler.proceed(); // Не рекомендуется, если вы не уверены в безопасности
+        // Или вы можете отменить загрузку
+        // handler.cancel();
     }
 }

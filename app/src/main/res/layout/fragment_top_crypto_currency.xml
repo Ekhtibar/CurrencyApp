@@ -42,6 +42,69 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </LinearLayout>
 
+<!--        <androidx.appcompat.widget.SearchView-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:background="@drawable/rounded_background"-->
+<!--            android:hint="Поиск..."-->
+<!--            android:textColor="#000"-->
+<!--            tools:iconifiedByDefault="false"-->
+<!--            android:textColorHint="#0f0f0f"-->
+<!--            android:clickable="true"-->
+<!--            android:queryBackground="@android:color/transparent"-->
+<!--            android:queryHint="Enter a keyword"-->
+<!--            android:layout_height="match_parent" />-->
+
+        <!--<LinearLayout
+            android:orientation="horizontal" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_background">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/search__1_"/>
+
+            <EditText
+                android:id="@+id/edt_search_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:hint="Поиск..."
+                android:paddingLeft="8dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingRight="8dp"
+                android:lines="1"
+                android:textColorHint="#000"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:background="#00000000"/>
+
+            <ImageView
+                android:id="@+id/iv_clear_text"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                android:src="@mipmap/ic_launcher_round"/>
+
+        </LinearLayout> -->
+
+
 
         <FrameLayout
             android:id="@+id/crypto_currencies_component"
